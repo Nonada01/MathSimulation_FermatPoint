@@ -29,6 +29,28 @@ npm run build
 
 빌드된 파일은 `dist` 폴더에 생성됩니다.
 
+### 5. GitHub Pages 배포
+
+**중요**: GitHub Pages에 배포하기 전에 `vite.config.js` 파일에서 `base` 경로를 수정해야 합니다.
+
+```javascript
+// vite.config.js
+export default defineConfig({
+  plugins: [react()],
+  base: '/저장소이름/', // 여기를 본인의 GitHub 저장소 이름으로 변경
+})
+```
+
+예시: 저장소가 `https://github.com/username/my-project`라면
+```javascript
+base: '/my-project/',
+```
+
+그 다음:
+1. `npm run build` 실행
+2. `dist` 폴더의 내용을 `gh-pages` 브랜치에 푸시
+3. GitHub 저장소 Settings > Pages에서 `gh-pages` 브랜치 선택
+
 ## 🎮 사용 방법
 
 1. **다면체 선택**: 정사면체, 정육면체, 정팔면체 중 선택
